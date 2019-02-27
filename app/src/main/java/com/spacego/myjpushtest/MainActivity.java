@@ -2,6 +2,7 @@ package com.spacego.myjpushtest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button mStopPushBtn;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mSetTagBtn;
     private Button mGetAliasBtn;
     private Button mGetTagBtn;
+    private Button mAddTagBtn;
     private Button mSetMobileBtn;
     private EditText mAliasEdt;
     private EditText mTagEdt;
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGetTagBtn = (Button)findViewById(R.id.getTag);
         mGetTagBtn.setOnClickListener(this);
 
+        mAddTagBtn = (Button)findViewById(R.id.addTag);
+        mAddTagBtn.setOnClickListener(this);
+
         mSetMobileBtn = (Button)findViewById(R.id.setMobile);
         mSetMobileBtn.setOnClickListener(this);
 
@@ -73,13 +79,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.setAlias:
-                JPushInterface.setAlias(getApplicationContext(), 1001, mAliasEdt.getText().toString());
+//                JPushInterface.setAlias(getApplicationContext(), 1001, mAliasEdt.getText().toString());
+                JPushInterface.setAlias(getApplicationContext(), mAliasEdt.getText().toString(), new TagAliasCallback() {
+
+                    @Override
+                    public void gotResult(int i, String s, Set<String> set) {
+                        Log.v("hello", "alias:" + s);
+                    }
+                });
                 break;
 
+            case R.id.addTag:
+                {
+                    Set<String> tags = new HashSet<>();
+                    tags.add(mTagEdt.getText().toString());
+                    JPushInterface.addTags(getApplicationContext(), 1001, tags);
+                }
+                break;
             case R.id.setTag:
-                Set<String> tags = new HashSet<>();
-                tags.add(mTagEdt.getText().toString());
-                JPushInterface.setTags(getApplicationContext(), 1001, tags);
+                {
+                    Set<String> tags = new HashSet<>();
+                    tags.add(mTagEdt.getText().toString());
+                    JPushInterface.setTags(getApplicationContext(), 1001, tags);
+                    JPushInterface.setTags(getApplicationContext(), tags, new TagAliasCallback() {
+                        @Override
+                        public void gotResult(int i, String s, Set<String> set) {
+                            for (String tag:set) {
+                                Log.v("hello", "tag:" + tag);
+                            }
+                        }
+                    });
+                }
                 break;
 
             case R.id.getAlias:

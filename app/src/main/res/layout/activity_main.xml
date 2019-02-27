@@ -81,6 +81,16 @@
         android:text="setTag" />
 
     <Button
+        android:id="@+id/addTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aliasText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="129dp"
+        android:layout_marginEnd="53dp"
+        android:text="addTag" />
+
+    <Button
         android:id="@+id/setMobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
