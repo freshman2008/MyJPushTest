@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/stopPush"
-        android:layout_width="185dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -17,9 +17,72 @@
 
     <Button
         android:id="@+id/resumePush"
-        android:layout_width="192dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="0dp"
         android:text="ResumePush" />
+
+    <EditText
+        android:id="@+id/aliasText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="117dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="alias" />
+
+    <EditText
+        android:id="@+id/tagText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="192dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="tag" />
+
+    <Button
+        android:id="@+id/setAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aliasText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="63dp"
+        android:text="setAlias" />
+
+    <Button
+        android:id="@+id/setTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aliasText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="57dp"
+        android:text="setTag" />
+
+    <Button
+        android:id="@+id/getAlias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/aliasText"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="214dp"
+        android:text="getAlias" />
+
+    <Button
+        android:id="@+id/getTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/getAlias"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-214dp"
+        android:text="getTag" />
 </RelativeLayout>
