@@ -49,6 +49,18 @@
         android:inputType="textPersonName"
         android:text="tag" />
 
+    <EditText
+        android:id="@+id/mobileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="348dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mobileText" />
+
     <Button
         android:id="@+id/setAlias"
         android:layout_width="wrap_content"
@@ -67,6 +79,16 @@
         android:layout_marginTop="72dp"
         android:layout_marginEnd="57dp"
         android:text="setTag" />
+
+    <Button
+        android:id="@+id/setMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aliasText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="57dp"
+        android:text="setMobile" />
 
     <Button
         android:id="@+id/getAlias"

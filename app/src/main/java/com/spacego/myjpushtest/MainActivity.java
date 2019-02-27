@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mSetTagBtn;
     private Button mGetAliasBtn;
     private Button mGetTagBtn;
+    private Button mSetMobileBtn;
     private EditText mAliasEdt;
     private EditText mTagEdt;
+    private EditText mMobileEdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGetTagBtn = (Button)findViewById(R.id.getTag);
         mGetTagBtn.setOnClickListener(this);
 
+        mSetMobileBtn = (Button)findViewById(R.id.setMobile);
+        mSetMobileBtn.setOnClickListener(this);
+
         mAliasEdt = findViewById(R.id.aliasText);
         mTagEdt = findViewById(R.id.tagText);
+        mMobileEdt = findViewById(R.id.mobileText);
     }
 
     @Override
@@ -79,8 +85,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.getAlias:
                 JPushInterface.getAllTags(getApplicationContext(), 1001);
                 break;
+
             case R.id.getTag:
                 JPushInterface.getAlias(getApplicationContext(), 1001);
+                break;
+
+            case R.id.setMobile:
+                JPushInterface.setMobileNumber(getApplicationContext(), 1001, mMobileEdt.getText().toString());
                 break;
         }
     }
